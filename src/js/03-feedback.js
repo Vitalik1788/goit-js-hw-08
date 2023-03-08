@@ -18,8 +18,8 @@ function onInputValue(event) {
   const message = refs.form.elements.message.value;
 
   const inputValue = {
-    email,
-    message,
+    email: email.trim(),
+    message: message.trim(),
   }
 
   const userInputValue = JSON.stringify(inputValue);
@@ -30,7 +30,7 @@ function onInputValue(event) {
 function onSubmitForm(event) {
   event.preventDefault();
   const { email, message } = event.currentTarget.elements;
-  console.log({ email: email.value, message: message.value });
+  console.log({ email: email.value.trim(), message: message.value.trim() });
   event.currentTarget.reset();
   localStorage.removeItem(STORAGE_KEY);
 };
